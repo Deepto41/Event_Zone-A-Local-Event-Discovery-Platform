@@ -18,7 +18,9 @@ export const router = createBrowserRouter([
       {
         index: true,
         path: "/",
+        loader:()=>fetch('/events.json'),
         Component: Home,
+         
       },
       {
         path: "blogs",

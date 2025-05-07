@@ -1,0 +1,62 @@
+[
+  {
+    "id": "event_001",
+    "name": "Tech Innovators Conference 2025",
+    "thumbnail": "https://i.ibb.co.com/F4NQYthT/Tech-Conferences-in-2025-1.jpg",
+    "category": "Technology",
+    "date": "2025-05-15",
+    "location": "Dhaka Convention Center, Dhaka",
+    "entry_fee": 500,
+    "description": "An exclusive gathering of tech leaders and innovators"
+  },
+  {
+    "id": "event_002",
+    "name": "Global Health & Wellness Expo",
+    "thumbnail": "https://i.ibb.co.com/3mSrnM0h/468410136-122130678758392243-1865221731888242761-n.jpg",
+    "category": "Health",
+    "date": "2025-06-10",
+    "location": "Expo Center, Dhaka",
+    "entry_fee": 300,
+    "description": "Discover the latest in health tech, nutrition, and wellness."
+  },
+  {
+    "id": "event_003",
+    "name": "Future of Finance Summit",
+    "thumbnail": "https://i.ibb.co.com/Ngbn7Mqm/images.png",
+    "category": "Finance",
+    "date": "2025-07-05",
+    "location": "Hotel Sonargaon,Dhaka",
+    "entry_fee": 450,
+    "description": "Meet financial leaders and discuss the future of global markets."
+  },
+  {
+    "id": "event_004",
+    "name": "Green Energy World Forum",
+    "thumbnail": "https://i.ibb.co.com/Nns5YX3J/unnamed.png",
+    "category": "Environment",
+    "date": "2025-08-20",
+    "location": "National Convention Center, Dhaka",
+    "entry_fee": 200,
+    "description": "A global forum on renewable energy and sustainability."
+  },
+  {
+    "id": "event_005",
+    "name": "World Art & Culture Festival",
+    "thumbnail": "https://i.ibb.co.com/0yMKDx4J/World-Sumit-on-arts-and-culture.jpg",
+    "category": "Culture",
+    "date": "2025-09-12",
+    "location": "Hotel Sonargaon,Dhaka",
+    "entry_fee": 100,
+    "description": "Celebrate diverse art and culture from across the globe."
+  },
+  {
+    "id": "event_006",
+    "name": "NextGen Startups Meetup",
+    "thumbnail": "https://i.ibb.co.com/Y7kpBhmP/images-1.png",
+    "category": "Business",
+    "date": "2025-10-03",
+    "location": "Dhaka Convocation Center, Dhaka",
+    "entry_fee": 350,
+    "description": "Connect with investors, mentors, and fellow entrepreneurs."
+  }
+]
