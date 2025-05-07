@@ -6,7 +6,7 @@ import Localevent from "../Localevent/Localevent";
 
 const Home = () => {
 const alldata =useLoaderData();
-console.log(alldata);
+
 
 
   return (
