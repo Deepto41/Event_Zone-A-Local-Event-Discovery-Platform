@@ -5,6 +5,8 @@ import Errorelement from "../Errorelement/Errorelement";
 import Blogs from "../Blogs/Blogs";
 import Profile from "../Profile/Profile";
 import Login from "../Login/Login";
+import Regester from "../Regester/Regester";
+
 
 
 export const router = createBrowserRouter([
@@ -29,6 +31,10 @@ export const router = createBrowserRouter([
       {
         path:"login",
         Component:Login,
+      } ,
+      {
+        path:"Regester",
+        Component: Regester,
       }
     ],
   },
