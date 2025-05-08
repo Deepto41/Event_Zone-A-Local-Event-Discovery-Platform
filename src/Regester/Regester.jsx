@@ -1,31 +1,77 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link } from 'react-router';
 import './Regester.css'
+import { AuthContext } from '../Context/AuthContext';
+
+
 
 const Regester = () => {
+  const {createUser,CreateUserWithGoogle}=use(AuthContext);
+  console.log(createUser)
+
+ const handleRegester =(e)=>{
+  e.preventDefault();
+  const name = e.target.name.value;
+  const email = e.target.email.value;
+  const url =e.target.photoUrl.value;
+  const password =e.target.password.value;
+  console.log(name,email,url,password) ;
+  createUser(email,password)
+  .then(result=>{
+    console.log(result)
+  })
+  .catch(error=>{
+    console.log(error)
+  })
+  
+
+  CreateUserWithGoogle()
+  .then(result=>{
+    console.log(result)
+  })
+.catch(error=>{
+  console.log(error)
+})
+
+
+ }
+
+
     return (
         <div className="max-w-sm mx-auto mt-4 mb-4">
-        <form>
-          {/* Email field */}
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-sm border p-6">
+        <form onSubmit={handleRegester}>
+        
+          <div className="fieldset bg-base-200 border-base-300 rounded-box w-sm border p-6">
+
             <h2 className="text-3xl font-bold text-center">Regester Now!</h2>
 
             <label className="label">Name</label>
-            <input type="text" className="input" placeholder="Your name" />
+            <input type="text"
+             name='name'
+              className="input" 
+              placeholder="Your name" />
 
             <label className="label">Email</label>
-            <input type="email" className="input" placeholder="Email" />
+            <input type="email"
+             name='email'
+              className="input" 
+              placeholder="Email" />
+
             <label className="label">PhotoURL </label>
-            <input type="text" className="input" placeholder="photoURL" />
+            <input type="text"
+             name='photoUrl' 
+             className="input"
+              placeholder="photoURL" />
   
             {/* password field */}
             <label className="label">Password</label>
             <label className="input validator">
               <input
                 type="password"
+                name="password"
                 required
                 placeholder="Password"
-                minlength="8"
+                minLength="8"
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
               />
@@ -41,14 +87,18 @@ const Regester = () => {
               
             <button className="btn btn-neutral mt-4 mb-1">Regester</button>
             <p>Already have an account? Please <Link className='text-blue-400' to='/login'>Login</Link></p>
-          </fieldset>
+          </div>
         </form>
+
+
+
+        
         <small className="text-center flex justify-center items-center text-md mt-2">
           Login With
         </small>
   
         <div className="flex gap-3 mt-2 justify-center items-center">
-          <button className="btn bg-white text-black border-[#e5e5e5]">
+          <button onClick={CreateUserWithGoogle} className="btn bg-white text-black border-[#e5e5e5]">
             <svg
               aria-label="Google logo"
               width="16"

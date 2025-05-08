@@ -1,25 +1,57 @@
-import React from "react";
+import React, { use } from "react";
 import { Link } from "react-router";
-import './Login.css'
+import "./Login.css";
+import { AuthContext } from "../Context/AuthContext";
 
 const Login = () => {
+  const { logIn, CreateUserWithGoogle } = use(AuthContext);
+  console.log(logIn);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password);
+    logIn(email, password)
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    CreateUserWithGoogle()
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="max-w-sm mx-auto mt-4 mb-4">
-      <form>
+      <form onSubmit={handleLogin}>
         {/* Email field */}
-        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-sm border p-6">
+        <div className="fieldset bg-base-200 border-base-300 rounded-box w-sm border p-6">
           <h2 className="text-3xl font-bold text-center">Login Now!</h2>
           <label className="label">Email</label>
-          <input type="email" className="input" placeholder="Email" />
+          <input
+            type="email"
+            className="input"
+            name="email"
+            placeholder="Email"
+          />
 
           {/* password field */}
           <label className="label">Password</label>
           <label className="input validator">
             <input
               type="password"
+              name="password"
               required
               placeholder="Password"
-              minlength="8"
+              minLength="8"
               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
               title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
             />
@@ -32,17 +64,22 @@ const Login = () => {
             At least one uppercase letter
           </p>
           <p>Forget Password?</p>
-            
+
           <button className="btn btn-neutral mt-4 mb-1">Login</button>
-          <p>New to this site? Please  <Link className="text-blue-400" to='/regester'>Regester</Link> </p> 
-        </fieldset>
+          <p>
+            New to this site? Please{" "}
+            <Link className="text-blue-400" to="/regester">
+              Regester
+            </Link>{" "}
+          </p>
+        </div>
       </form>
       <small className="text-center flex justify-center items-center text-md mt-2">
         Login With
       </small>
 
       <div className="flex gap-3 mt-2 justify-center items-center">
-        <button className="btn bg-white text-black border-[#e5e5e5]">
+        <button onClick={CreateUserWithGoogle} className="btn bg-white text-black border-[#e5e5e5]">
           <svg
             aria-label="Google logo"
             width="16"
