@@ -1,9 +1,20 @@
-import React from "react";
+import React, { use } from "react";
 import { MdEvent } from "react-icons/md";
 import { Link, NavLink } from "react-router";
 import './Navbar.css'
+import { AuthContext } from "../Context/AuthContext";
 
 const Navbar = () => {
+  const{user,signout}=use(AuthContext);
+  const handleSignout=()=>{
+    signout()
+    .then(()=>{
+      console.log('signout success')
+    })
+    .catch(error=>{
+      console.log(error)
+    })
+  }
   const links = (
     <>
       <li className="font-medium text-md text-[#0F0F0F70] mr-2">
@@ -52,7 +63,11 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <Link to='/login' className="btn text-white rounded-xl px-4 py-1 bg-[#0EA106]">Login</Link>
+        
+        {
+          user?<button className="btn text-white rounded-xl px-4 py-1 bg-[#0EA106]" onClick={handleSignout}>Logout</button>:<Link to='/login' className="btn text-white rounded-xl px-4 py-1 bg-[#0EA106]">Login</Link>
+        }
+
       </div>
     </div>
   );

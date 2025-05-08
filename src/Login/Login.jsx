@@ -12,6 +12,7 @@ const Login = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log(email, password);
+
     logIn(email, password)
       .then((result) => {
         console.log(result);
@@ -20,13 +21,13 @@ const Login = () => {
         console.log(error);
       });
 
-    CreateUserWithGoogle()
-      .then((result) => {
-        console.log(result);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // CreateUserWithGoogle()
+    //   .then((result) => {
+    //     console.log(result);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   };
 
   return (
