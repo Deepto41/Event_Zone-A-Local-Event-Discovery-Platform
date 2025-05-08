@@ -1,11 +1,14 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { Link } from 'react-router';
 import './Regester.css'
 import { AuthContext } from '../Context/AuthContext';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 
 
 const Regester = () => {
+
+  const [showpass, setShowpass] = useState(false);
   const {createUser,CreateUserWithGoogle}=use(AuthContext);
   console.log(createUser)
 
@@ -66,8 +69,9 @@ const Regester = () => {
             {/* password field */}
             <label className="label">Password</label>
             <label className="input validator">
+              <div className='relative'>
               <input
-                type="password"
+                type={showpass ? "text" : "password"}
                 name="password"
                 required
                 placeholder="Password"
@@ -75,6 +79,14 @@ const Regester = () => {
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
               />
+                <button
+              type="button"
+              onClick={() => setShowpass(!showpass)}
+              className=" cursor-pointer absolute bottom-1 top-.5 -right-35"
+            >
+              {showpass ? <FaEyeSlash /> : <FaEye />}
+            </button>
+              </div>
             </label>
             <p className="validator-hint hidden">
               Must be more than 8 characters, including
