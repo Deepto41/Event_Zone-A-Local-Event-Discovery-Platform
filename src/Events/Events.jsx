@@ -1,6 +1,9 @@
-import React from "react";
+import React, { use } from "react";
+import { AuthContext } from "../Context/AuthContext";
+import { Link } from "react-router";
 
 const Events = ({ data }) => {
+  const{user}=use(AuthContext);
   const { thumbnail, name, category, date, location, entry_fee } = data;
   return (
     <div className="w-11/12 mx-auto mb-4 ">
@@ -21,9 +24,13 @@ const Events = ({ data }) => {
 
           <p className="text-md font-semibold">Location:{location}</p>
           <p className="text-md font-semibold">Entry Fee:{entry_fee}</p>
-          <button className="btn bg-[#0EA106] rounded-md w-full">
+         {
+          user?  <Link to='/details' className="btn bg-[#0EA106] rounded-md w-full">
+          View More
+        </Link> :  <Link to='/login' className="btn bg-[#0EA106] rounded-md w-full">
             View More
-          </button>
+          </Link>
+         }
         </div>
       </div>
 

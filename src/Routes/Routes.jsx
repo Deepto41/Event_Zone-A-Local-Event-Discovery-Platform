@@ -3,9 +3,14 @@ import Root from "../Root/Root";
 import Home from "../Home/Home";
 import Errorelement from "../Errorelement/Errorelement";
 import Blogs from "../Blogs/Blogs";
-import Profile from "../Profile/Profile";
+
 import Login from "../Login/Login";
 import Regester from "../Regester/Regester";
+import Privateroutes from "../Privateroutes/Privateroute"
+import Profile from "../Profile/Profile";
+
+import Details from "../Details/Details";
+
 
 
 
@@ -24,11 +29,16 @@ export const router = createBrowserRouter([
       },
       {
         path: "blogs",
-        Component: Blogs,
+         element: <Privateroutes><Blogs></Blogs></Privateroutes>
       },
       {
         path: "profile",
-        Component: Profile,
+       element:<Privateroutes><Profile></Profile></Privateroutes>
+        
+      },
+      {
+        path:"details",
+        element:<Privateroutes><Details></Details></Privateroutes>
       },
       {
         path:"login",
