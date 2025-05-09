@@ -14,6 +14,7 @@ import Details from "../Details/Details";
 
 
 
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -24,6 +25,7 @@ export const router = createBrowserRouter([
         index: true,
         path: "/",
         loader:()=>fetch('/events.json'),
+        HydrateFallback:<span className="loading loading-bars loading-xl justify-center items-centerml lg:ml-150 "></span>,
         Component: Home,
          
       },
@@ -37,7 +39,9 @@ export const router = createBrowserRouter([
         
       },
       {
-        path:"details",
+        path:"details/:id",
+        loader:()=> fetch('/events.json'),
+        HydrateFallback:<span className="loading loading-bars loading-xl justify-center items-centerml lg:ml-150 "></span>,
         element:<Privateroutes><Details></Details></Privateroutes>
       },
       {
@@ -47,7 +51,9 @@ export const router = createBrowserRouter([
       {
         path:"Regester",
         Component: Regester,
-      }
+      },
+
+
     ],
   },
 ]);

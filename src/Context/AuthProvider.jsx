@@ -34,6 +34,8 @@ const createUserwithGoogle=()=>{
     return createUserWithEmailAndPassword(auth, email, password);
   };
   
+  
+
   useEffect(()=>{
     const unSubscribe=onAuthStateChanged(auth,currentUser =>{
     console.log('current user', currentUser);
@@ -53,7 +55,7 @@ const createUserwithGoogle=()=>{
     logIn,
     user,
     signout,
-    createUserwithGoogle
+    createUserwithGoogle,
   };
   return <AuthContext value={authData}>{children}</AuthContext>;
 };

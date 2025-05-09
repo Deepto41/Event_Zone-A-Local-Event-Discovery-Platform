@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { Link } from "react-router";
 import "./Login.css";
 import { AuthContext } from "../Context/AuthContext";
@@ -7,7 +7,8 @@ import { Helmet } from "react-helmet-async";
 const Login = () => {
 
   const { logIn, CreateUserWithGoogle } = use(AuthContext);
-  console.log(logIn);
+  // console.log(logIn);
+
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -15,25 +16,34 @@ const Login = () => {
     const password = e.target.password.value;
     console.log(email, password);
 
+    const passRegtExp = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+    if (passRegtExp.test(password) === false) {
+      return;
+    }
+    
     logIn(email, password)
       .then((result) => {
         console.log(result);
+      
+
       })
       .catch((error) => {
         console.log(error);
       });
 
-    // CreateUserWithGoogle()
-    //   .then((result) => {
-    //     console.log(result);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+    CreateUserWithGoogle()
+      .then((result) => {
+        console.log(result);
+      
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
     <div className="max-w-sm mx-auto mt-4 mb-4">
+      
         <Helmet>
                 <title>Event_Zone || Login</title>
             </Helmet>

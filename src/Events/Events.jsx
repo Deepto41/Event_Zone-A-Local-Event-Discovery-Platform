@@ -24,8 +24,10 @@ const Events = ({ data }) => {
 
           <p className="text-md font-semibold">Location:{location}</p>
           <p className="text-md font-semibold">Entry Fee:{entry_fee}</p>
+         
+
          {
-          user?  <Link to='/details' className="btn bg-[#0EA106] rounded-md w-full">
+          user?  <Link to='/details/:id' className="btn bg-[#0EA106] rounded-md w-full">
           View More
         </Link> :  <Link to='/login' className="btn bg-[#0EA106] rounded-md w-full">
             View More
