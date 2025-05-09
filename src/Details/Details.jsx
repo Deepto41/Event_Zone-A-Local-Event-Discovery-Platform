@@ -1,20 +1,20 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useLoaderData, useParams} from 'react-router';
+// import { useLoaderData, useParams} from 'react-router';
 
 
 
 const Details = () => {
-  const data =useLoaderData();
-  console.log(data);
+//   const data =useLoaderData();
+//   console.log(data);
 
-  const {name}=useParams();
-  console.log(name);
+//   const {name}=useParams();
+//   console.log(name);
     
-  const singledata= data.find(single=>single.name=== name);
+//   const singledata= data.find(single=>single.name=== name);
 
   
- const {description,thumbnail}=singledata;
+//  const {description,thumbnail}=singledata;
  
      
 
@@ -27,8 +27,8 @@ const Details = () => {
                 <title>Event_Zone || Details</title>
             </Helmet>
             <div>
-               <img src={thumbnail} alt="" />
-               <p>{description}</p>
+               {/* <img src={thumbnail} alt="" />
+               <p>{description}</p> */}
             </div>
            </div>
         

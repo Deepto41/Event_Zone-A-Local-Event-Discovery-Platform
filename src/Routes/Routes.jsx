@@ -39,7 +39,7 @@ export const router = createBrowserRouter([
         
       },
       {
-        path:"details/:id",
+        path:"details",
         loader:()=> fetch('/events.json'),
         HydrateFallback:<span className="loading loading-bars loading-xl justify-center items-centerml lg:ml-150 "></span>,
         element:<Privateroutes><Details></Details></Privateroutes>
