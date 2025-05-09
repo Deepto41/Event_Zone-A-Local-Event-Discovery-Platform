@@ -1,8 +1,12 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Details = () => {
     return (
         <div className='w-11/12 mx-auto'>
+              <Helmet>
+                <title>Event_Zone || Details</title>
+            </Helmet>
            <h1 className='text-2xl font-bold text-center mt-5 mb-5'>Events Details</h1>
            <div className='w-11/12 mx-auto'>
             <img className='w-full h-80 ' src="/Assets/InnovateX.png" alt="" />

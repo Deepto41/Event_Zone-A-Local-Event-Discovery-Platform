@@ -3,13 +3,14 @@ import { Link } from "react-router";
 import "./Regester.css";
 import { AuthContext } from "../Context/AuthContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 
 const Regester = () => {
   const [showpass, setShowpass] = useState(false);
 
-  const { createUser} = use(AuthContext);
-  console.log(createUser);
+  const { createUser,createUserwithGoogle} = use(AuthContext);
+  console.log(createUser,createUserwithGoogle);
   
   const handleRegester = (e) => {
     e.preventDefault();
@@ -20,13 +21,19 @@ const Regester = () => {
     console.log(name, email, url, password);
 
   
-     
+    createUserwithGoogle()
+    .then(result=>{
+      console.log(result)
+      .catch(error=>{
+        console.log(error)
+      })
+    })
 
      
 
     createUser(email, password)
       .then((result) => {
-        console.log(result);
+        console.log(result.user);
      
       })
       .catch((error) => {
@@ -38,6 +45,9 @@ const Regester = () => {
 
   return (
     <div className="max-w-sm mx-auto mt-4 mb-4">
+        <Helmet>
+                <title>Event_Zone || Regester</title>
+            </Helmet>
       <form onSubmit={handleRegester}>
         <div className="fieldset bg-base-200 border-base-300 rounded-box w-sm border p-6">
           <h2 className="text-3xl font-bold text-center">Regester Now!</h2>
@@ -112,7 +122,7 @@ const Regester = () => {
       </small>
 
       <div className="flex gap-3 mt-2 justify-center items-center">
-        <button
+        <button onClick={()=>createUserwithGoogle()}
          
           className="btn bg-white text-black border-[#e5e5e5]"
         >

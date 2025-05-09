@@ -2,8 +2,10 @@ import React, { use } from "react";
 import { Link } from "react-router";
 import "./Login.css";
 import { AuthContext } from "../Context/AuthContext";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
+
   const { logIn, CreateUserWithGoogle } = use(AuthContext);
   console.log(logIn);
 
@@ -32,6 +34,9 @@ const Login = () => {
 
   return (
     <div className="max-w-sm mx-auto mt-4 mb-4">
+        <Helmet>
+                <title>Event_Zone || Login</title>
+            </Helmet>
       <form onSubmit={handleLogin}>
         {/* Email field */}
         <div className="fieldset bg-base-200 border-base-300 rounded-box w-sm border p-6">

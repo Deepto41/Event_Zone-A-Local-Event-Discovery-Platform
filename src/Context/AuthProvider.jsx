@@ -3,8 +3,10 @@ import { AuthContext } from "./AuthContext";
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
  
 
@@ -16,6 +18,11 @@ const AuthProvider = ({ children }) => {
 const [user,setUser]=useState(null);
 
   const auth = getAuth(app);
+ const provide =new GoogleAuthProvider();
+
+const createUserwithGoogle=()=>{
+  return signInWithPopup(provide,auth)
+}
 
   const logIn=(email,password)=>{
     return signInWithEmailAndPassword(auth,email,password)
@@ -45,7 +52,8 @@ const [user,setUser]=useState(null);
     createUser,
     logIn,
     user,
-    signout
+    signout,
+    createUserwithGoogle
   };
   return <AuthContext value={authData}>{children}</AuthContext>;
 };
