@@ -4,12 +4,6 @@
 
 ---
 
-## 📸 Screenshot
-![Event Zone Screenshot](https://i.ibb.co/JjwnSZTz/1756830632692.jpg)  
-*(Replace with your actual screenshot URL)*
-
----
-
 ## 🛠️ Technologies Used
 - React.js  
 - Express.js  
@@ -81,4 +75,4 @@ http://localhost:3000
 View Live Event Zone
 
 📚 Additional Resources
-Project Live Link :
+Project Live Link : https://merry-crisp-f66e93.netlify.app/
